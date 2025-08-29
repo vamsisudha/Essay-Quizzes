@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Essay1-Quiz3</title>
+<style>
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; padding:18px;}
+.container{max-width:900px;margin:0 auto;}
+.card{border-radius:8px;padding:14px;margin-bottom:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03);}
+.question{font-weight:600;margin-bottom:8px;}
+.options label{display:block;padding:8px;border-radius:6px;margin-bottom:6px;cursor:pointer;}
+.options input[type=radio]{margin-right:8px;}
+.correct{background-color:#dff0d8 !important;} /* green-ish */
+.incorrect{background-color:#f8d7da !important;} /* red-ish */
+.feedback{margin-top:6px;font-weight:600;}
+.controls{margin-top:18px;}
+button{padding:8px 12px;border-radius:6px;border:0;cursor:pointer}
+.reset{background:#eee}
+</style>
+</head>
+<body>
+<div class='container'>
+<h1>Essay1-Quiz3</h1>
+<p>Interactive multiple-choice quiz. Select an answer to get immediate feedback. The correct answer will be shown if you pick incorrectly. Use Reset to start over.</p>
+<form id='quizForm'>
+
+<div class='card' id='q0'>
+<div class='question'>Q1. अस्मदीयः =</div>
+<div class='options'>
+
+<label id='label_q0_opt0'><input type='radio' name='q0' id='q0_opt0' value="अस्माकम् अयम्" onchange='handleSelect(0, "अस्माकम् अयम्")'> अस्माकम् अयम्</label>
+
+<label id='label_q0_opt1'><input type='radio' name='q0' id='q0_opt1' value="अस्माभिः कृतः" onchange='handleSelect(0, "अस्माभिः कृतः")'> अस्माभिः कृतः</label>
+
+<label id='label_q0_opt2'><input type='radio' name='q0' id='q0_opt2' value="अस्माकं विकारः" onchange='handleSelect(0, "अस्माकं विकारः")'> अस्माकं विकारः</label>
+
+<label id='label_q0_opt3'><input type='radio' name='q0' id='q0_opt3' value="अस्माकं भावः" onchange='handleSelect(0, "अस्माकं भावः")'> अस्माकं भावः</label>
+
+</div>
+<div class='feedback' id='fb0'></div>
+<input type='hidden' id='correct_0' value="अस्माकम् अयम्">
+</div>
+
+<div class='card' id='q1'>
+<div class='question'>Q2. सन्धिं विभजत - एकयैव</div>
+<div class='options'>
+
+<label id='label_q1_opt0'><input type='radio' name='q1' id='q1_opt0' value="एका + एव" onchange='handleSelect(1, "एका + एव")'> एका + एव</label>
+
+<label id='label_q1_opt1'><input type='radio' name='q1' id='q1_opt1' value="एकः + एव" onchange='handleSelect(1, "एकः + एव")'> एकः + एव</label>
+
+<label id='label_q1_opt2'><input type='radio' name='q1' id='q1_opt2' value="एकया + एव" onchange='handleSelect(1, "एकया + एव")'> एकया + एव</label>
+
+<label id='label_q1_opt3'><input type='radio' name='q1' id='q1_opt3' value="एकायै + एव" onchange='handleSelect(1, "एकायै + एव")'> एकायै + एव</label>
+
+</div>
+<div class='feedback' id='fb1'></div>
+<input type='hidden' id='correct_1' value="एकया + एव">
+</div>
+
+<div class='card' id='q2'>
+<div class='question'>Q3. पाश्चात्त्यः = </div>
+<div class='options'>
+
+<label id='label_q2_opt0'><input type='radio' name='q2' id='q2_opt0' value="पश्चात् अस्य अस्ति" onchange='handleSelect(2, "पश्चात् अस्य अस्ति")'> पश्चात् अस्य अस्ति</label>
+
+<label id='label_q2_opt1'><input type='radio' name='q2' id='q2_opt1' value="पश्चात् भवः" onchange='handleSelect(2, "पश्चात् भवः")'> पश्चात् भवः</label>
+
+<label id='label_q2_opt2'><input type='radio' name='q2' id='q2_opt2' value="पश्चात् गतः" onchange='handleSelect(2, "पश्चात् गतः")'> पश्चात् गतः</label>
+
+<label id='label_q2_opt3'><input type='radio' name='q2' id='q2_opt3' value="पश्चातः अपत्यं पुमान्" onchange='handleSelect(2, "पश्चातः अपत्यं पुमान्")'> पश्चातः अपत्यं पुमान्</label>
+
+</div>
+<div class='feedback' id='fb2'></div>
+<input type='hidden' id='correct_2' value="पश्चात् भवः">
+</div>
+
+<div class='card' id='q3'>
+<div class='question'>Q4. व्यवह्रियते - कः धातुः, कः लकारः?</div>
+<div class='options'>
+
+<label id='label_q3_opt0'><input type='radio' name='q3' id='q3_opt0' value="अव् धातुः, लट्" onchange='handleSelect(3, "अव् धातुः, लट्")'> अव् धातुः, लट्</label>
+
+<label id='label_q3_opt1'><input type='radio' name='q3' id='q3_opt1' value="ह्री धातुः, लट्" onchange='handleSelect(3, "ह्री धातुः, लट्")'> ह्री धातुः, लट्</label>
+
+<label id='label_q3_opt2'><input type='radio' name='q3' id='q3_opt2' value="अवहृ धातुः, कर्मणि लट्" onchange='handleSelect(3, "अवहृ धातुः, कर्मणि लट्")'> अवहृ धातुः, कर्मणि लट्</label>
+
+<label id='label_q3_opt3'><input type='radio' name='q3' id='q3_opt3' value="हृ धातुः, कर्मणि लट्" onchange='handleSelect(3, "हृ धातुः, कर्मणि लट्")'> हृ धातुः, कर्मणि लट्</label>
+
+</div>
+<div class='feedback' id='fb3'></div>
+<input type='hidden' id='correct_3' value="हृ धातुः, कर्मणि लट्">
+</div>
+
+<div class='card' id='q4'>
+<div class='question'>Q5. विज्ञानिभिः - अस्य प्रातिपदिकं किम्?</div>
+<div class='options'>
+
+<label id='label_q4_opt0'><input type='radio' name='q4' id='q4_opt0' value="विज्ञानि" onchange='handleSelect(4, "विज्ञानि")'> विज्ञानि</label>
+
+<label id='label_q4_opt1'><input type='radio' name='q4' id='q4_opt1' value="विज्ञान" onchange='handleSelect(4, "विज्ञान")'> विज्ञान</label>
+
+<label id='label_q4_opt2'><input type='radio' name='q4' id='q4_opt2' value="विज्ञानिन्" onchange='handleSelect(4, "विज्ञानिन्")'> विज्ञानिन्</label>
+
+<label id='label_q4_opt3'><input type='radio' name='q4' id='q4_opt3' value="विज्ञान्" onchange='handleSelect(4, "विज्ञान्")'> विज्ञान्</label>
+
+</div>
+<div class='feedback' id='fb4'></div>
+<input type='hidden' id='correct_4' value="विज्ञानिन्">
+</div>
+
+</form>
+<div class='controls'><button type='button' onclick='resetQuiz()' class='reset'>Reset</button></div>
+</div>
+
+<script>
+function handleSelect(qIndex, chosen){
+  const correct = document.getElementById('correct_'+qIndex).value;
+  const card = document.getElementById('q'+qIndex);
+  const labels = card.querySelectorAll('label');
+  // Clear previous states
+  labels.forEach(l=>{ l.classList.remove('correct'); l.classList.remove('incorrect'); });
+  const fb = document.getElementById('fb'+qIndex);
+  if(chosen === correct){
+    // mark the selected label correct
+    labels.forEach(l=>{ if(l.textContent.trim().endsWith(chosen)) l.classList.add('correct'); });
+    fb.textContent = 'Correct!';
+  } else {
+    // mark selected incorrect, and highlight correct
+    labels.forEach(l=>{ if(l.textContent.trim().endsWith(chosen)) l.classList.add('incorrect');
+                       if(l.textContent.trim().endsWith(correct)) l.classList.add('correct'); });
+    fb.textContent = 'Incorrect — correct answer: ' + correct;
+  }
+}
+function resetQuiz(){
+  const form = document.getElementById('quizForm');
+  form.reset();
+  // remove color classes and feedback
+  const labels = document.querySelectorAll('label');
+  labels.forEach(l=>{ l.classList.remove('correct'); l.classList.remove('incorrect'); });
+  const fbs = document.querySelectorAll('[id^=fb]');
+  fbs.forEach(e=> e.textContent = '');
+}
+</script>
+</body>
+</html>

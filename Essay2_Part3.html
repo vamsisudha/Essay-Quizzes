@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskrit Quiz - Essay-2_Quiz-3</title>
+  <style>
+    body { font-family: Devanagari, Noto Sans, 'Noto Sans Devanagari', sans-serif; background: #f7f7fb; margin: 0; }
+    .wrap { max-width: 900px; margin: auto; padding: 24px; }
+    h1 { margin: 0 0 16px; }
+    .quiz-box { background: #fff; border-radius: 14px; padding: 18px; margin: 14px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+    .question { font-size: 18px; margin-bottom: 10px; }
+    .options button { display: block; width: 100%; text-align: left; margin: 6px 0; padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa; cursor: pointer; transition: transform 0.02s ease-in; }
+    .options button:hover { transform: translateY(-1px); }
+    .options button.correct { background: #c8e6c9; border-color: #2e7d32; }
+    .options button.wrong { background: #ffcdd2; border-color: #c62828; }
+    .controls { margin-top: 20px; display: flex; gap: 10px; }
+    .btn { padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>📖 संस्कृत प्रश्नमाला — Essay-2 Quiz-3</h1>
+    <div id="quiz"></div>
+    <div class="controls">
+      <button id="reset" class="btn">Reset Quiz</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        q: "निगदिताः इत्यस्य उचितः समानार्थः कः?",
+        options: ["कथितवन्तः", "अकथयन्", "अकथयन्त", "कथिताः"],
+        answer: 3
+      },
+      {
+        q: "स्वाध्यायः इत्यस्य उचितविभागं चिनुत",
+        options: ["सु + अध्यायः", "स्व + अध्यायः", "स्वा + अध्यायः", "स्वा+ ध्यायः"],
+        answer: 1
+      },
+      {
+        q: "धनमाहृत्य इत्यत्र",
+        options: ["अनुस्वारसन्धिः", "केवलसंयोगः", "आकारस्य  आगमनम्", "परसवर्णसन्धिः"],
+        answer: 1
+      },
+      {
+        q: "अस्तेयम् - अत्र धातुः कः",
+        options: ["अस्", "अस्ते", "स्तेन", "स्तेय"],
+        answer: 2
+      },
+      {
+        q: "वैरता - अर्थः कः",
+        options: ["वैरस्य भावः", "वीरस्य भावः", "वीरत्व भावः", "वीरम् अस्य अस्ति"],
+        answer: 1
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    function render() {
+      quizContainer.innerHTML = "";
+      questions.forEach((q, i) => {
+        const box = document.createElement("div");
+        box.className = "quiz-box";
+        box.innerHTML = `<div class='question'><b>Q${i+1}:</b> ${q.q}</div>`;
+
+        const opts = document.createElement("div");
+        opts.className = "options";
+
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.addEventListener("click", () => {
+            if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+            if (idx === q.answer) {
+              btn.classList.add("correct");
+            } else {
+              btn.classList.add("wrong");
+            }
+          });
+          opts.appendChild(btn);
+        });
+
+        box.appendChild(opts);
+        quizContainer.appendChild(box);
+      });
+    }
+
+    render();
+
+    document.getElementById("reset").addEventListener("click", () => {
+      document.querySelectorAll(".options button").forEach(b => {
+        b.classList.remove("correct", "wrong");
+      });
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

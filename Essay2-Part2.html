@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sanskrit Quiz - Essay2_Quiz2.xlsx</title>
+  <style>
+    body { font-family: Devanagari, Noto Sans, 'Noto Sans Devanagari', sans-serif; background: #f7f7fb; margin: 0; }
+    .wrap { max-width: 900px; margin: auto; padding: 24px; }
+    h1 { margin: 0 0 16px; }
+    .quiz-box { background: #fff; border-radius: 14px; padding: 18px; margin: 14px 0; box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+    .question { font-size: 18px; margin-bottom: 10px; }
+    .options button { display: block; width: 100%; text-align: left; margin: 6px 0; padding: 10px 12px; border: 1px solid #e0e0e0; border-radius: 10px; background: #fafafa; cursor: pointer; transition: transform 0.02s ease-in; }
+    .options button:hover { transform: translateY(-1px); }
+    .options button.correct { background: #c8e6c9; border-color: #2e7d32; }
+    .options button.wrong { background: #ffcdd2; border-color: #c62828; }
+    .controls { margin-top: 20px; display: flex; gap: 10px; }
+    .btn { padding: 10px 14px; border-radius: 10px; border: 1px solid #ddd; background: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>📖 संस्कृत प्रश्नमाला — Essay2_Quiz-2.xlsx</h1>
+    <div id="quiz"></div>
+    <div class="controls">
+      <button id="reset" class="btn">Reset Quiz</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = [{"q": "समुचितमर्थं चिनुत - भारतीयविज्ञानप्रमाणभूतैः", "options": ["By Vedas", "By Upanishad", "By Gita", "By Sages"], "answer": 0}, {"q": "समुचितमर्थं चिनुत - मा प्रमदः", "options": ["Deviate", "Do it", "Do not Deviate", "Delay"], "answer": 2}, {"q": "समुचितमर्थं चिनुत - इन्द्रियनिग्रहः", "options": ["Control of Army", "Control of Senses", "Can't Control", "Controlling All"], "answer": 1}, {"q": "समुचितमर्थं चिनुत - उपदर्शितम्", "options": ["Respected", "Criticized", "Ignored", "explained"], "answer": 3}, {"q": "समुचितमर्थं चिनुत - फलमुपदर्शितम्", "options": ["Result not shown", "The result is shown", "Differentiated", "Done"], "answer": 1}, {"q": "समुचितमर्थं चिनुत -सिद्धि:", "options": ["Compromised", "Burden", "Accomplishment", "Approached"], "answer": 2}, {"q": "समुचितमर्थं चिनुत - अवलोक्यते", "options": ["It is observed", "It is prevented", "It is Provided", "Not observed"], "answer": 0}, {"q": "समुचितमर्थं चिनुत - सूर्यास्तमयात्", "options": ["From the Sunrise", "From the noon", "From the Sunrays", "From the Sunset"], "answer": 3}, {"q": "समुचितमर्थं चिनुत - अनुयायिनः", "options": ["The Friends", "The Followers", "The Friendship", "The Foes"], "answer": 1}, {"q": "समुचितमर्थं चिनुत - प्रचारम्", "options": ["Parallel", "Proposed", "Preached", "Promoted"], "answer": 2}];
+
+    const quizContainer = document.getElementById("quiz");
+
+    function render() {
+      quizContainer.innerHTML = "";
+      questions.forEach((q, i) => {
+        const box = document.createElement("div");
+        box.className = "quiz-box";
+        box.innerHTML = `<div class='question'><b>Q${i+1}:</b> ${q.q}</div>`;
+
+        const opts = document.createElement("div");
+        opts.className = "options";
+
+        q.options.forEach((opt, idx) => {
+          const btn = document.createElement("button");
+          btn.textContent = opt;
+          btn.addEventListener("click", () => {
+            // If already graded, ignore
+            if (btn.classList.contains("correct") || btn.classList.contains("wrong")) return;
+            if (idx === q.answer) {
+              btn.classList.add("correct");
+            } else {
+              btn.classList.add("wrong");
+            }
+          });
+          opts.appendChild(btn);
+        });
+
+        box.appendChild(opts);
+        quizContainer.appendChild(box);
+      });
+    }
+
+    render();
+
+    document.getElementById("reset").addEventListener("click", () => {
+      // Remove all correctness/wrongness classes
+      document.querySelectorAll(".options button").forEach(b => {
+        b.classList.remove("correct", "wrong");
+      });
+      // Optionally re-render to reset any state
+      // render();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  </script>
+</body>
+</html>

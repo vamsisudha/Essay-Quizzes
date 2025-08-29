@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Essay1-Quiz2</title>
+<style>
+body{font-family:system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; padding:18px;}
+.container{max-width:900px;margin:0 auto;}
+.card{border-radius:8px;padding:14px;margin-bottom:12px;box-shadow:0 6px 18px rgba(0,0,0,0.03);}
+.question{font-weight:600;margin-bottom:8px;}
+.options label{display:block;padding:8px;border-radius:6px;margin-bottom:6px;cursor:pointer;}
+.options input[type=radio]{margin-right:8px;}
+.correct{background-color:#dff0d8 !important;} /* green-ish */
+.incorrect{background-color:#f8d7da !important;} /* red-ish */
+.feedback{margin-top:6px;font-weight:600;}
+.controls{margin-top:18px;}
+button{padding:8px 12px;border-radius:6px;border:0;cursor:pointer}
+.reset{background:#eee}
+</style>
+</head>
+<body>
+<div class='container'>
+<h1>Essay1-Quiz2</h1>
+<p>Interactive multiple-choice quiz. Select an answer to get immediate feedback. The correct answer will be shown if you pick incorrectly. Use Reset to start over.</p>
+<form id='quizForm'>
+
+<div class='card' id='q0'>
+<div class='question'>Q1. समुचितमर्थं चिनुत - आद्रियते</div>
+<div class='options'>
+
+<label id='label_q0_opt0'><input type='radio' name='q0' id='q0_opt0' value="Is understood" onchange='handleSelect(0, "Is understood")'> Is understood</label>
+
+<label id='label_q0_opt1'><input type='radio' name='q0' id='q0_opt1' value=" Is respected" onchange='handleSelect(0, " Is respected")'>  Is respected</label>
+
+<label id='label_q0_opt2'><input type='radio' name='q0' id='q0_opt2' value=" Is criticized" onchange='handleSelect(0, " Is criticized")'>  Is criticized</label>
+
+<label id='label_q0_opt3'><input type='radio' name='q0' id='q0_opt3' value=" Is ignored" onchange='handleSelect(0, " Is ignored")'>  Is ignored</label>
+
+</div>
+<div class='feedback' id='fb0'></div>
+<input type='hidden' id='correct_0' value=" Is respected">
+</div>
+
+<div class='card' id='q1'>
+<div class='question'>Q2. समुचितमर्थं चिनुत - निबद्धानि</div>
+<div class='options'>
+
+<label id='label_q1_opt0'><input type='radio' name='q1' id='q1_opt0' value="Needed" onchange='handleSelect(1, "Needed")'> Needed</label>
+
+<label id='label_q1_opt1'><input type='radio' name='q1' id='q1_opt1' value="Practiced" onchange='handleSelect(1, "Practiced")'> Practiced</label>
+
+<label id='label_q1_opt2'><input type='radio' name='q1' id='q1_opt2' value="Composed" onchange='handleSelect(1, "Composed")'> Composed</label>
+
+<label id='label_q1_opt3'><input type='radio' name='q1' id='q1_opt3' value="Dismissed" onchange='handleSelect(1, "Dismissed")'> Dismissed</label>
+
+</div>
+<div class='feedback' id='fb1'></div>
+<input type='hidden' id='correct_1' value="Composed">
+</div>
+
+<div class='card' id='q2'>
+<div class='question'>Q3. समुचितमर्थं चिनुत - किं बहुना?</div>
+<div class='options'>
+
+<label id='label_q2_opt0'><input type='radio' name='q2' id='q2_opt0' value="What more can be said?" onchange='handleSelect(2, "What more can be said?")'> What more can be said?</label>
+
+<label id='label_q2_opt1'><input type='radio' name='q2' id='q2_opt1' value=" What is the reason?" onchange='handleSelect(2, " What is the reason?")'>  What is the reason?</label>
+
+<label id='label_q2_opt2'><input type='radio' name='q2' id='q2_opt2' value=" What is the next step?" onchange='handleSelect(2, " What is the next step?")'>  What is the next step?</label>
+
+<label id='label_q2_opt3'><input type='radio' name='q2' id='q2_opt3' value=" What is the meaning?" onchange='handleSelect(2, " What is the meaning?")'>  What is the meaning?</label>
+
+</div>
+<div class='feedback' id='fb2'></div>
+<input type='hidden' id='correct_2' value="What more can be said?">
+</div>
+
+<div class='card' id='q3'>
+<div class='question'>Q4. समुचितमर्थं चिनुत - पाश्चात्त्यदेशाः</div>
+<div class='options'>
+
+<label id='label_q3_opt0'><input type='radio' name='q3' id='q3_opt0' value="Eastern countries" onchange='handleSelect(3, "Eastern countries")'> Eastern countries</label>
+
+<label id='label_q3_opt1'><input type='radio' name='q3' id='q3_opt1' value=" Western countries" onchange='handleSelect(3, " Western countries")'>  Western countries</label>
+
+<label id='label_q3_opt2'><input type='radio' name='q3' id='q3_opt2' value=" Northern regions" onchange='handleSelect(3, " Northern regions")'>  Northern regions</label>
+
+<label id='label_q3_opt3'><input type='radio' name='q3' id='q3_opt3' value=" Southern countries" onchange='handleSelect(3, " Southern countries")'>  Southern countries</label>
+
+</div>
+<div class='feedback' id='fb3'></div>
+<input type='hidden' id='correct_3' value=" Western countries">
+</div>
+
+<div class='card' id='q4'>
+<div class='question'>Q5. समुचितमर्थं चिनुत - प्राच्यविज्ञानम्</div>
+<div class='options'>
+
+<label id='label_q4_opt0'><input type='radio' name='q4' id='q4_opt0' value="Modern Science" onchange='handleSelect(4, "Modern Science")'> Modern Science</label>
+
+<label id='label_q4_opt1'><input type='radio' name='q4' id='q4_opt1' value=" Oriental Science" onchange='handleSelect(4, " Oriental Science")'>  Oriental Science</label>
+
+<label id='label_q4_opt2'><input type='radio' name='q4' id='q4_opt2' value=" Western Science" onchange='handleSelect(4, " Western Science")'>  Western Science</label>
+
+<label id='label_q4_opt3'><input type='radio' name='q4' id='q4_opt3' value=" Social Science" onchange='handleSelect(4, " Social Science")'>  Social Science</label>
+
+</div>
+<div class='feedback' id='fb4'></div>
+<input type='hidden' id='correct_4' value=" Oriental Science">
+</div>
+
+<div class='card' id='q5'>
+<div class='question'>Q6. समुचितमर्थं चिनुत - समासादयितुं</div>
+<div class='options'>
+
+<label id='label_q5_opt0'><input type='radio' name='q5' id='q5_opt0' value="To attain" onchange='handleSelect(5, "To attain")'> To attain</label>
+
+<label id='label_q5_opt1'><input type='radio' name='q5' id='q5_opt1' value=" To prevent" onchange='handleSelect(5, " To prevent")'>  To prevent</label>
+
+<label id='label_q5_opt2'><input type='radio' name='q5' id='q5_opt2' value=" To discuss" onchange='handleSelect(5, " To discuss")'>  To discuss</label>
+
+<label id='label_q5_opt3'><input type='radio' name='q5' id='q5_opt3' value=" To understand" onchange='handleSelect(5, " To understand")'>  To understand</label>
+
+</div>
+<div class='feedback' id='fb5'></div>
+<input type='hidden' id='correct_5' value="To attain">
+</div>
+
+<div class='card' id='q6'>
+<div class='question'>Q7. समुचितमर्थं चिनुत - दृढतरः</div>
+<div class='options'>
+
+<label id='label_q6_opt0'><input type='radio' name='q6' id='q6_opt0' value="Weaker" onchange='handleSelect(6, "Weaker")'> Weaker</label>
+
+<label id='label_q6_opt1'><input type='radio' name='q6' id='q6_opt1' value=" Stronger" onchange='handleSelect(6, " Stronger")'>  Stronger</label>
+
+<label id='label_q6_opt2'><input type='radio' name='q6' id='q6_opt2' value=" Equal" onchange='handleSelect(6, " Equal")'>  Equal</label>
+
+<label id='label_q6_opt3'><input type='radio' name='q6' id='q6_opt3' value=" Lesser" onchange='handleSelect(6, " Lesser")'>  Lesser</label>
+
+</div>
+<div class='feedback' id='fb6'></div>
+<input type='hidden' id='correct_6' value=" Stronger">
+</div>
+
+<div class='card' id='q7'>
+<div class='question'>Q8. समुचितमर्थं चिनुत - अधीयमाना</div>
+<div class='options'>
+
+<label id='label_q7_opt0'><input type='radio' name='q7' id='q7_opt0' value="Being recited" onchange='handleSelect(7, "Being recited")'> Being recited</label>
+
+<label id='label_q7_opt1'><input type='radio' name='q7' id='q7_opt1' value=" Being forgotten" onchange='handleSelect(7, " Being forgotten")'>  Being forgotten</label>
+
+<label id='label_q7_opt2'><input type='radio' name='q7' id='q7_opt2' value=" Being ignored" onchange='handleSelect(7, " Being ignored")'>  Being ignored</label>
+
+<label id='label_q7_opt3'><input type='radio' name='q7' id='q7_opt3' value=" Being studied" onchange='handleSelect(7, " Being studied")'>  Being studied</label>
+
+</div>
+<div class='feedback' id='fb7'></div>
+<input type='hidden' id='correct_7' value=" Being studied">
+</div>
+
+<div class='card' id='q8'>
+<div class='question'>Q9. समुचितमर्थं चिनुत - विशयः</div>
+<div class='options'>
+
+<label id='label_q8_opt0'><input type='radio' name='q8' id='q8_opt0' value="Subject" onchange='handleSelect(8, "Subject")'> Subject</label>
+
+<label id='label_q8_opt1'><input type='radio' name='q8' id='q8_opt1' value=" Obstacle" onchange='handleSelect(8, " Obstacle")'>  Obstacle</label>
+
+<label id='label_q8_opt2'><input type='radio' name='q8' id='q8_opt2' value=" Opportunity" onchange='handleSelect(8, " Opportunity")'>  Opportunity</label>
+
+<label id='label_q8_opt3'><input type='radio' name='q8' id='q8_opt3' value="Doubt" onchange='handleSelect(8, "Doubt")'> Doubt</label>
+
+</div>
+<div class='feedback' id='fb8'></div>
+<input type='hidden' id='correct_8' value="Doubt">
+</div>
+
+<div class='card' id='q9'>
+<div class='question'>Q10. समुचितमर्थं चिनुत - लेशतोऽपि</div>
+<div class='options'>
+
+<label id='label_q9_opt0'><input type='radio' name='q9' id='q9_opt0' value="Even to the slightest extent" onchange='handleSelect(9, "Even to the slightest extent")'> Even to the slightest extent</label>
+
+<label id='label_q9_opt1'><input type='radio' name='q9' id='q9_opt1' value=" Even to the greatest extent" onchange='handleSelect(9, " Even to the greatest extent")'>  Even to the greatest extent</label>
+
+<label id='label_q9_opt2'><input type='radio' name='q9' id='q9_opt2' value=" Completely" onchange='handleSelect(9, " Completely")'>  Completely</label>
+
+<label id='label_q9_opt3'><input type='radio' name='q9' id='q9_opt3' value=" Not at all" onchange='handleSelect(9, " Not at all")'>  Not at all</label>
+
+</div>
+<div class='feedback' id='fb9'></div>
+<input type='hidden' id='correct_9' value="Even to the slightest extent">
+</div>
+
+</form>
+<div class='controls'><button type='button' onclick='resetQuiz()' class='reset'>Reset</button></div>
+</div>
+
+<script>
+function handleSelect(qIndex, chosen){
+  const correct = document.getElementById('correct_'+qIndex).value;
+  const card = document.getElementById('q'+qIndex);
+  const labels = card.querySelectorAll('label');
+  // Clear previous states
+  labels.forEach(l=>{ l.classList.remove('correct'); l.classList.remove('incorrect'); });
+  const fb = document.getElementById('fb'+qIndex);
+  if(chosen === correct){
+    // mark the selected label correct
+    labels.forEach(l=>{ if(l.textContent.trim().endsWith(chosen)) l.classList.add('correct'); });
+    fb.textContent = 'Correct!';
+  } else {
+    // mark selected incorrect, and highlight correct
+    labels.forEach(l=>{ if(l.textContent.trim().endsWith(chosen)) l.classList.add('incorrect');
+                       if(l.textContent.trim().endsWith(correct)) l.classList.add('correct'); });
+    fb.textContent = 'Incorrect — correct answer: ' + correct;
+  }
+}
+function resetQuiz(){
+  const form = document.getElementById('quizForm');
+  form.reset();
+  // remove color classes and feedback
+  const labels = document.querySelectorAll('label');
+  labels.forEach(l=>{ l.classList.remove('correct'); l.classList.remove('incorrect'); });
+  const fbs = document.querySelectorAll('[id^=fb]');
+  fbs.forEach(e=> e.textContent = '');
+}
+</script>
+</body>
+</html>
